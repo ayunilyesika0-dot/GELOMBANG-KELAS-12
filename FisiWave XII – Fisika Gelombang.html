@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="id"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>FisiWave XII – Fisika Gelombang</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=Source+Serif+4:wght@400;600&display=swap" rel="stylesheet">
+<script>window.MathJax={tex:{inlineMath:[['$','$']],displayMath:[['$$','$$']]},svg:{fontCache:'global'}}</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-svg.js" async></script>
+<style>
+:root{--bg:#f6f2e6;--ink:#2e3b24;--sea:#5f8a3f;--coral:#d9486a;--card:#fffdf6;--line:#d6dcc0;--soft:#e6efd3;--btnt:#fff;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#1b2316;--ink:#eef3e2;--sea:#a9cc86;--coral:#ff8fa5;--card:#263220;--line:#3d4f33;--soft:#2f3d27;--btnt:#2a1018}}
+:root[data-theme=dark]{--bg:#1b2316;--ink:#eef3e2;--sea:#a9cc86;--coral:#ff8fa5;--card:#263220;--line:#3d4f33;--soft:#2f3d27;--btnt:#2a1018}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{background:var(--bg);color:var(--ink);font-family:'Source Serif 4',Georgia,serif;font-size:17px;line-height:1.65;margin:0}
+h1,h2,h3,.sans{font-family:'Bricolage Grotesque',system-ui,sans-serif}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:1.1rem 1.25rem}
+.btn{font-family:'Bricolage Grotesque',system-ui,sans-serif;font-weight:700;background:var(--coral);color:var(--btnt);padding:.5rem 1rem;border-radius:10px;border:0;cursor:pointer}
+.btn.alt{background:var(--soft);color:var(--ink)}
+:focus-visible{outline:3px solid var(--coral);outline-offset:2px}
+.tab{padding:.45rem .9rem;border-radius:999px;border:1px solid var(--line);background:var(--card);cursor:pointer;font-family:'Bricolage Grotesque',sans-serif;font-weight:600;white-space:nowrap}
+.tab[aria-selected=true]{background:var(--ink);color:var(--bg)}
+.scroll-x{overflow-x:auto}
+mjx-container{overflow-x:auto;overflow-y:hidden;max-width:100%}
+.opt{display:block;width:100%;text-align:left;padding:.55rem .8rem;margin:.3rem 0;border:1px solid var(--line);border-radius:10px;background:var(--card);color:var(--ink);cursor:pointer}
+.ok{background:#bff0d4!important;color:#073b1f!important}.bad{background:#ffc9bd!important;color:#5a1304!important}
+.cell{width:1.7rem;height:2rem;text-align:center;text-transform:uppercase;border:1px solid var(--line);background:var(--card);color:var(--ink);font-weight:700;border-radius:5px;padding:0}
+.slot{min-height:3.2rem;border:2px dashed var(--line);border-radius:10px;padding:.4rem;display:flex;align-items:center;justify-content:center;flex-wrap:wrap}
+.fc{border:1px solid var(--line);background:var(--soft);border-radius:10px;padding:.35rem .6rem;cursor:grab;display:inline-block;margin:.2rem}
+.fc.sel{outline:3px solid var(--coral)}
+ul.l{list-style:disc;padding-left:1.3rem}
+
+.cm{display:grid;gap:14px;grid-template-columns:1fr}@media(min-width:640px){.cm{grid-template-columns:1fr 1fr}}
+.pn{border:4px solid #111;border-radius:6px;box-shadow:5px 5px 0 #111;background-image:radial-gradient(rgba(0,0,0,.13) 1.2px,transparent 1.4px);background-size:9px 9px;padding:.6rem;min-height:15rem;display:flex;flex-direction:column;gap:.6rem;color:#111}
+.pn .sc{font-size:3.2rem;text-align:center;line-height:1.15;flex:1;display:flex;align-items:center;justify-content:center}
+.cap{background:#fff3a3;border:2px solid #111;font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:.85rem;padding:.3rem .5rem;line-height:1.35}
+.bb{background:#fff;border:2px solid #111;border-radius:16px;padding:.4rem .75rem;font-size:.95rem;line-height:1.35;position:relative;max-width:92%;margin-bottom:9px}
+.bb b{font-family:'Bricolage Grotesque',sans-serif;font-size:.75rem;display:block;color:#a8321a}
+.bb.r{align-self:flex-end}
+.bb:after{content:'';position:absolute;bottom:-9px;left:18px;border:8px solid transparent;border-top-color:#111;border-bottom:0}
+.bb.r:after{left:auto;right:18px}
+.fgrid{display:grid;gap:12px;grid-template-columns:1fr}@media(min-width:640px){.fgrid{grid-template-columns:1fr 1fr}}
+.fm{background:var(--card);border:1px solid var(--line);border-left:6px solid var(--coral);border-radius:12px;padding:.7rem 1rem;min-width:0}
+.fn{font-family:'Bricolage Grotesque',sans-serif;font-weight:700;color:var(--sea)}.ft{overflow-x:auto;padding:.2rem 0}.fk{font-size:.85rem;opacity:.8}
+.pn,.bb,.cap{border-color:#2e3b24}.pn{box-shadow:5px 5px 0 #2e3b24}.bb:after{border-top-color:#2e3b24}
+@media(prefers-reduced-motion:reduce){*{animation:none!important}}
+</style></head>
+<body>
+<header class="sticky top-0 z-20" style="background:var(--ink);color:var(--bg);padding-top:env(safe-area-inset-top,0px)">
+ <div class="max-w-4xl mx-auto px-4 py-2 flex items-center gap-3 flex-wrap">
+  <div class="sans font-extrabold text-xl">FisiWave XII</div>
+  <div class="text-sm opacity-80 hidden sm:block">Fisika Gelombang · Kelas XII SMA</div>
+  <div class="ml-auto sans text-sm" id="mode">Beranda</div>
+ </div>
+ <nav class="max-w-4xl mx-auto px-4 pb-2 flex gap-2 scroll-x" role="tablist" id="nav"></nav>
+</header>
+
+<main class="max-w-4xl mx-auto px-4 py-6">
+<!-- BERANDA -->
+<section data-v="home">
+ <div class="card" style="padding:0;overflow:hidden">
+  <svg id="wv" viewBox="0 0 800 120" class="w-full" style="display:block;background:var(--soft)" aria-hidden="true"><path id="wp" fill="none" stroke="var(--sea)" stroke-width="4"/></svg>
+  <div class="p-5">
+   <h1 class="text-3xl sm:text-4xl font-extrabold">Selamat datang! Mari belajar gelombang.</h1>
+   <p class="mt-2">Geser untuk mengubah frekuensi gelombang di atas, lalu pilih modul belajar.</p>
+   <label class="sans text-sm">Frekuensi <input id="fr" type="range" min="1" max="8" value="3" class="align-middle"></label>
+  </div>
+ </div>
+ <div class="grid sm:grid-cols-2 gap-4 mt-5" id="menu"></div>
+</section>
+
+<!-- MATERI -->
+<section data-v="materi" hidden>
+ <h2 class="text-2xl font-bold mb-3">Materi Lengkap Gelombang</h2>
+ <div class="flex gap-2 scroll-x pb-2" id="mtabs"></div>
+
+ <div id="mbody" class="mt-3"></div>
+</section>
+
+<!-- CERITA -->
+<section data-v="cerita" hidden>
+ <h2 class="text-2xl font-bold mb-3">Materi Cerita</h2>
+ <div class="flex gap-2 scroll-x pb-2" id="stabs"></div>
+ <div class="card mt-3" id="story"></div>
+</section>
+
+<!-- VIDEO -->
+<section data-v="video" hidden>
+ <h2 class="text-2xl font-bold mb-3">Video Interaktif</h2>
+ <div class="card"><canvas id="vc" width="640" height="320" class="w-full" style="display:block;background:var(--soft);border-radius:10px"></canvas>
+ <p class="sans font-semibold mt-2" id="sub" style="min-height:3rem"></p>
+ <div class="flex items-center gap-2 mt-1"><button class="btn" id="pp">Putar</button><input type="range" id="seek" min="0" max="30" step="0.1" value="0" class="flex-1" aria-label="Linimasa video"><select id="spd" class="sans" aria-label="Kecepatan"><option value="1">1x</option><option value="0.5">0,5x</option><option value="2">2x</option></select></div>
+ <div id="vq" class="mt-3" hidden></div></div>
+</section>
+
+<!-- KUIS -->
+<section data-v="kuis" hidden>
+ <div class="flex items-center justify-between mb-3"><h2 class="text-2xl font-bold">Latihan Soal</h2><div class="sans font-bold" id="score">Skor: 0 / 100</div></div>
+ <div id="quiz" class="space-y-4"></div>
+</section>
+
+<!-- GAME -->
+<section data-v="game" hidden>
+ <h2 class="text-2xl font-bold mb-3">Lab Game Interaktif</h2>
+ <div class="flex gap-2 mb-3"><button class="tab" role="tab" aria-selected="true" id="g1b">TTS Gelombang</button><button class="tab" role="tab" aria-selected="false" id="g2b">Seret Rumus</button></div>
+ <div id="g1" class="card"></div>
+ <div id="g2" class="card" hidden></div>
+</section>
+</main>
+
+<script>
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+const typeset=()=>window.MathJax&&MathJax.typesetPromise?MathJax.typesetPromise():0;
+/* Audio */
+let AC;const tone=(f,t0,d,type='sine',g=.15)=>{AC=AC||new (window.AudioContext||window.webkitAudioContext)();const o=AC.createOscillator(),a=AC.createGain();o.type=type;o.frequency.value=f;o.connect(a);a.connect(AC.destination);const t=AC.currentTime+t0;a.gain.setValueAtTime(g,t);a.gain.exponentialRampToValueAtTime(.001,t+d);o.start(t);o.stop(t+d)};
+const ding=()=>{tone(880,0,.5);tone(1320,.1,.6)},buzz=()=>tone(110,0,.45,'sawtooth',.2),fanfare=()=>[523,659,784,1047,784,1047].forEach((f,i)=>tone(f,i*.16,.3,'triangle'));
+
+/* Navigasi */
+const V=[['home','Beranda'],['materi','Materi'],['cerita','Cerita'],['video','Video'],['kuis','Latihan'],['game','Game']];
+$('#nav').innerHTML=V.map(([k,n])=>`<button class="tab" role="tab" data-go="${k}" aria-selected="${k=='home'}">${n}</button>`).join('');
+function go(k){$$('[data-v]').forEach(e=>e.hidden=e.dataset.v!=k);$$('[data-go]').forEach(b=>b.setAttribute('aria-selected',b.dataset.go==k));$('#mode').textContent=V.find(v=>v[0]==k)[1];scrollTo(0,0);typeset()}
+document.addEventListener('click',e=>{const b=e.target.closest('[data-go]');if(b)go(b.dataset.go)});
+$('#menu').innerHTML=[['materi','📚 Materi Lengkap','Rumus, konsep, dan contoh dari 5 modul.'],['cerita','📖 Materi Cerita','Fisika lewat 4 kisah sehari-hari.'],['video','🎬 Video Interaktif','Animasi gelombang dengan pertanyaan di tengah video.'],['kuis','✍️ Latihan Soal','5 soal dengan bunyi benar/salah dan pembahasan.'],['game','🎮 Lab Game','TTS istilah dan seret-cocokkan rumus.']]
+ .map(([k,t,d])=>`<button data-go="${k}" class="card text-left"><div class="sans text-xl font-bold">${t}</div><div>${d}</div></button>`).join('');
+
+/* Gelombang hero */
+let ph=0;const rm=matchMedia('(prefers-reduced-motion:reduce)').matches;
+function draw(){const f=+$('#fr').value;let d='';for(let x=0;x<=800;x+=8)d+=(x?'L':'M')+x+' '+(60+40*Math.sin(x/800*f*6.283-ph));$('#wp').setAttribute('d',d);ph+=.04;if(!rm)requestAnimationFrame(draw)}
+draw();$('#fr').oninput=()=>rm&&draw();
+
+/* Materi tabs */
+const MT=['Dasar','Berjalan & Stasioner','Bunyi','Cahaya','Spektrum GEM'];
+$('#mtabs').innerHTML=MT.map((t,i)=>`<button class="tab" role="tab" data-mt="${i}" aria-selected="${i==0}">${i+1}. ${t}</button>`).join('');
+const r=String.raw;
+const M=[
+{i:r`<p><b>Gelombang</b> adalah perambatan getaran yang memindahkan <b>energi dan momentum</b> tanpa memindahkan partikel medium secara permanen.</p><ul class="l"><li><b>Arah getar:</b> transversal (getar tegak lurus rambat; bukit–lembah; tali, cahaya) dan longitudinal (getar sejajar rambat; rapatan–renggangan; bunyi).</li><li><b>Amplitudo:</b> berjalan (amplitudo tetap) dan stasioner (amplitudo bergantung posisi).</li><li><b>Medium:</b> mekanik (perlu medium: bunyi, tali, air) dan elektromagnetik (bisa di ruang hampa: cahaya, radio, sinar-X).</li></ul>`,
+f:[['Frekuensi',r`f=\frac{n}{t}=\frac{1}{T}`,'Satuan: hertz (Hz)'],['Periode',r`T=\frac{t}{n}=\frac{1}{f}`,'Satuan: sekon (s)'],['Panjang gelombang',r`\lambda=\frac{s}{n}`,'Satuan: meter (m)'],['Cepat rambat',r`v=\lambda f=\frac{\lambda}{T}`,'Satuan: m/s'],['Bilangan gelombang',r`k=\frac{2\pi}{\lambda}`,'Satuan: rad/m'],['Kecepatan sudut',r`\omega=2\pi f=\frac{2\pi}{T}`,'Satuan: rad/s'],['Fase gelombang',r`\varphi=\frac{t}{T}\mp\frac{x}{\lambda}`,'Tanpa satuan'],['Beda fase',r`\Delta\varphi=\frac{\Delta x}{\lambda}=\varphi_2-\varphi_1`,'Tanpa satuan']]},
+{i:r`<p>Tanda pada persamaan: <b>+A</b> simpangan awal ke atas, <b>−A</b> ke bawah; <b>−kx</b> merambat ke kanan (sumbu X+), <b>+kx</b> ke kiri. Pada gelombang stasioner, jarak $x$ diukur dari ujung pantul.</p>`,
+f:[['Gelombang berjalan',r`y=\pm A\sin(\omega t\mp kx+\theta_0)`,'A amplitudo (m)'],['Kecepatan partikel',r`v_p=\omega A\cos(\omega t\mp kx)`,'Turunan pertama y terhadap t'],['Percepatan partikel',r`a_p=-\omega^2A\sin(\omega t\mp kx)=-\omega^2y`,'Turunan kedua y terhadap t'],['Hukum Melde',r`v=\sqrt{\frac{F}{\mu}}=\sqrt{\frac{FL}{m}}=\sqrt{\frac{F}{\rho A}}`,'F tegangan (N), μ massa per panjang (kg/m)'],['Ujung terikat: simpangan',r`y=2A\sin(kx)\cos(\omega t)`,'Amplitudo $A_s=2A\sin(kx)$'],['Ujung terikat: letak',r`x_s=(n-1)\frac{\lambda}{2},\quad x_p=(2n-1)\frac{\lambda}{4}`,'Simpul dan perut ke-n'],['Ujung bebas: simpangan',r`y=2A\cos(kx)\sin(\omega t)`,'Amplitudo $A_s=2A\cos(kx)$'],['Ujung bebas: letak',r`x_p=(n-1)\frac{\lambda}{2},\quad x_s=(2n-1)\frac{\lambda}{4}`,'Perut dan simpul ke-n']]},
+{i:r`<p>Bunyi adalah gelombang <b>longitudinal mekanik</b>. Cepat rambatnya bergantung pada sifat medium: padat ($E$ modulus Young), cair ($B$ modulus Bulk), gas ($\gamma$ konstanta Laplace, $T$ dalam kelvin).</p><p>Aturan tanda Doppler: pendengar mendekat $+v_p$, menjauh $-v_p$; sumber mendekat $-v_s$, menjauh $+v_s$. Ada angin: $v\to v\pm v_a$.</p>`,
+f:[['Bunyi di zat padat',r`v=\sqrt{\frac{E}{\rho}}`,''],['Bunyi di zat cair',r`v=\sqrt{\frac{B}{\rho}}`,''],['Bunyi di gas',r`v=\sqrt{\frac{\gamma RT}{M}}`,''],['Pipa organa terbuka',r`f_n=(n+1)\frac{v}{2L}`,'n = 0, 1, 2, … ; rasio 1 : 2 : 3'],['Pipa organa tertutup',r`f_n=(2n+1)\frac{v}{4L}`,'n = 0, 1, 2, … ; rasio 1 : 3 : 5'],['Intensitas',r`I=\frac{P}{A}=\frac{P}{4\pi r^2}`,'Satuan: W/m²'],['Taraf intensitas',r`TI=10\log\frac{I}{I_0}`,'Satuan dB; $I_0=10^{-12}$ W/m²'],['N sumber identik',r`TI_N=TI_1+10\log N`,''],['Perubahan jarak',r`TI_2=TI_1-20\log\frac{r_2}{r_1}`,''],['Efek Doppler',r`f_p=\frac{v\pm v_p}{v\pm v_s}f_s`,''],['Pelayangan',r`f_{layang}=|f_1-f_2|`,'']]},
+{i:r`<p>Cahaya memiliki sifat pemantulan, pembiasan, interferensi, difraksi, dan polarisasi. Pada interferensi dan difraksi, $n$ menyatakan orde pola.</p>`,
+f:[['Pemantulan',r`\theta_i=\theta_r`,''],['Pembiasan (Snellius)',r`n_1\sin\theta_1=n_2\sin\theta_2,\quad n=\frac{c}{v}`,''],['Young: terang',r`\frac{d\,y}{L}=n\lambda`,'n = 0, 1, 2, …'],['Young: gelap',r`\frac{d\,y}{L}=\left(n-\tfrac12\right)\lambda`,'n = 1, 2, 3, …'],['Celah tunggal: gelap',r`d\sin\theta=n\lambda`,'n = 1, 2, 3, …'],['Celah tunggal: terang',r`d\sin\theta=\left(n+\tfrac12\right)\lambda`,'n = 1, 2, 3, …'],['Kisi difraksi',r`d\sin\theta=n\lambda,\quad d=\frac{1}{N}`,'N garis per cm'],['Sudut Brewster',r`\tan\theta_B=\frac{n_2}{n_1}`,'Polarisasi karena pemantulan'],['Hukum Malus',r`I_2=\tfrac12I_0\cos^2\theta`,r`Setelah polarisator: $I_1=\tfrac12I_0$`]]},
+{i:r`<p>GEM merambat tanpa medium, bersifat transversal, dengan medan listrik $E$ dan magnet $B$ saling tegak lurus. Urutan dari frekuensi terendah ke tertinggi:</p><ol class="l" style="list-style:decimal"><li>Radio: siaran AM/FM, komunikasi jarak jauh.</li><li>Mikro: oven, Wi-Fi, radar.</li><li>Inframerah: remote, kamera termal, fisioterapi.</li><li>Cahaya tampak (me-ji-ku-hi-bi-ni-u), 400–700 nm.</li><li>Ultraviolet: vitamin D, sterilisasi, cek uang.</li><li>Sinar-X: foto rontgen, inspeksi bagasi.</li><li>Gamma: radioterapi, sterilisasi makanan, reaksi nuklir.</li></ol><p><b>Bahaya:</b> sinar-X dan gamma mengionisasi, dapat merusak DNA dan memicu mutasi sel atau kanker.</p>`,
+f:[['Kecepatan GEM di ruang hampa',r`c=3\times10^{8}\ \text{m/s}`,''],['Hubungan dasar',r`c=\lambda f`,'Makin tinggi f, makin pendek λ']]}];
+function renderM(n){const m=M[n];$('#mbody').innerHTML=`<div class="card mb-3">${m.i}</div><div class="fgrid">${m.f.map(f=>`<div class="fm"><div class="fn">${f[0]}</div><div class="ft">$$${f[1]}$$</div><div class="fk">${f[2]||''}</div></div>`).join('')}</div>`;typeset()}
+$('#mtabs').onclick=e=>{const b=e.target.closest('[data-mt]');if(!b)return;$$('[data-mt]').forEach(x=>x.setAttribute('aria-selected',x==b));renderM(+b.dataset.mt)};renderM(0);
+
+/* Cerita */
+const S=[
+{t:'Konser Arya & Efek Doppler',k:'#dcebc2',f:'Efek Doppler (sumber mendekat, pendengar diam): $f_p=\\frac{v}{v-v_s}f_s$. Sirene 700 Hz, $v_s=20$ m/s, $v=340$ m/s → $f_p=\\frac{340}{320}\\times700=743{,}75$ Hz. Gema terdengar jelas bila selisih waktu pantulan > 0,1 s.',p:[
+['🎸🏟️🤩','Sabtu malam. Arya akhirnya menonton konser band favoritnya bersama sahabatnya, Dimas.',[['Arya','Dadaku ikut bergetar kena dentuman drumnya!']]],
+['🥁〰️👂','Setiap pukulan drum menggetarkan udara.',[['Dimas','Itu gelombang longitudinal. Udara merapat lalu merenggang, dan energinya sampai ke telingamu.'],['Arya','Jadi udaranya tidak ikut pindah ke telingaku?'],['Dimas','Betul. Yang merambat energinya, bukan partikelnya.']]],
+['🚑💨🔊','Di luar stadion, sebuah ambulans melaju dengan sirene menyala.',[['Arya','Aneh! Nada sirenenya tinggi waktu mendekat, lalu rendah waktu menjauh.']]],
+['🚑➡️〰️〰️〰️','Gelombang di depan ambulans terhimpit, di belakangnya merenggang.',[['Dimas','Itu efek Doppler. Di depan sumber, λ memendek sehingga f yang kamu dengar naik.'],['Arya','Sirenenya sendiri tidak berubah nadanya?'],['Dimas','Tidak. Yang berubah hanya yang kamu dengar.']]],
+['🏟️🗣️↩️','Arya berteriak ke arah tribun kosong.',[['Arya','HALOOO!'],['Gema','…haloo… …halo…'],['Dimas','Itu pemantulan bunyi. Gema jelas bila selisih waktunya lebih dari 0,1 sekon.']]],
+['🧮🚑📝','Dimas mengeluarkan buku catatannya.',[['Dimas','Sirene 700 Hz, ambulans 20 m/s, cepat rambat bunyi 340 m/s. Coba hitung frekuensi yang kita dengar!'],['Arya','340 dibagi 320 dikali 700… 743,75 Hz! Pantas terdengar lebih tinggi.']]]]},
+{t:'Misteri Pelangi Maya',k:'#ffd6de',f:'Hukum Snellius: $n_1\\sin\\theta_1=n_2\\sin\\theta_2$, dengan $n=\\frac{c}{v}$. Indeks bias tiap warna berbeda, sehingga cahaya putih terurai (dispersi). Ungu dibelokkan paling besar, merah paling kecil.',p:[
+['🌧️☀️👧','Hujan reda. Maya berlari ke teras karena langit mulai terang.',[['Maya','Lihat, ada pelangi! Kenapa warnanya berurutan begitu?']]],
+['💧🔆','Kakak Maya, Kak Raka, mengambil gelas berisi air dan menyorotkan senter.',[['Raka','Cahaya putih ini sebenarnya campuran banyak warna. Lihat saat masuk ke air.'],['Maya','Arahnya membelok!']]],
+['🔦➡️💧📐','Cahaya melambat saat masuk air yang lebih rapat.',[['Raka','Itu pembiasan. Cahaya berpindah medium, kecepatannya berubah, arahnya ikut membelok sesuai hukum Snellius.']]],
+['🌈🔺','Raka memegang prisma kaca ke arah matahari.',[['Raka','Tiap warna dibelokkan berbeda. Ungu paling besar, merah paling kecil.'],['Maya','Itu yang disebut dispersi?'],['Raka','Tepat sekali!']]],
+['💧🔄🌈','Di langit, jutaan tetes air bekerja seperti prisma kecil.',[['Maya','Jadi cahaya masuk ke tetes air, dibiaskan, dipantulkan di dalam, lalu dibiaskan lagi saat keluar?'],['Raka','Betul. Hasilnya pelangi: merah di luar, ungu di dalam.']]],
+['📔🌈😊','Maya menulis di buku hariannya.',[['Maya','Pelangi bukan benda di langit. Itu cahaya matahari yang terurai oleh tetes hujan. Besok aku pamerkan di kelas fisika!']]]]},
+{t:'Sinyal Rahasia Smartphone',k:'#cde5ad',f:'Semua gelombang elektromagnetik merambat dengan $c=3\\times10^8$ m/s di ruang hampa, bersifat transversal, tanpa memerlukan medium. Gelombang radio dan mikro dipakai untuk komunikasi seluler, Wi-Fi, dan radar.',p:[
+['📱🌏😮','Rafi menelepon sepupunya di Jepang. Suaranya jernih, padahal kabel tidak terlihat sama sekali.',[['Rafi','Bagaimana suaraku bisa sampai ke sana tanpa kabel?']]],
+['🎤⚡📡','Bu Sari, guru fisika, menjelaskan lewat video call.',[['Bu Sari','Mikrofon mengubah suaramu menjadi sinyal listrik. Sinyal itu dititipkan pada gelombang radio dan mikro.']]],
+['📡🗼〰️','Ponsel Rafi mengirim gelombang ke menara BTS terdekat.',[['Rafi','Jadi menara itu seperti pos pengantar?'],['Bu Sari','Ya. Dari menara, sinyal diteruskan lewat serat optik atau satelit.']]],
+['🛰️🌍⚡','Gelombang elektromagnetik tidak butuh medium.',[['Bu Sari','Cepatnya 3×10⁸ m/s di ruang hampa. Karena itu bisa lewat satelit di luar angkasa.'],['Rafi','Berarti berbeda dengan bunyi yang perlu udara.']]],
+['📻📶🔥','Rafi memperhatikan benda-benda di rumahnya.',[['Rafi','Radio FM, Wi-Fi, oven microwave, remote TV… semuanya gelombang elektromagnetik?'],['Bu Sari','Ya, hanya beda frekuensinya. Jadi percakapan tidak saling bertabrakan.']]],
+['☢️⚠️🛡️','Bu Sari menutup dengan peringatan.',[['Bu Sari','Radio dan mikro relatif aman. Tapi sinar-X dan gamma mengionisasi dan bisa merusak DNA, jadi pemakaiannya harus terkontrol.']]]]},
+{t:'USG & Pantulan Ultrasonik',k:'#ffe4e9',f:'Bunyi ultrasonik berfrekuensi di atas 20 kHz. Kedalaman objek: $d=\\frac{v\\,t}{2}$, dibagi 2 karena bunyi menempuh jarak pergi dan pulang. Sebagai contoh, jika $v=1500$ m/s dan $t=0{,}00004$ s, maka $d=3$ cm.',p:[
+['🏥🤰👩‍⚕️','Bu Dina memeriksakan kehamilannya. Dokter Intan menyiapkan alat USG.',[['Bu Dina','Dok, apakah alat ini menyinarkan sinar-X?'],['Dr. Intan','Bukan, Bu. Ini memakai gelombang bunyi.']]],
+['🔊🚫👂','Probe memancarkan bunyi di atas 20 kHz.',[['Dr. Intan','Frekuensinya terlalu tinggi untuk telinga manusia, makanya disebut ultrasonik.']]],
+['🔊➡️🫧↩️','Gelombang masuk ke tubuh dan memantul di batas jaringan yang berbeda.',[['Dr. Intan','Cairan ketuban, otot, dan tulang memantulkan bunyi dengan cara berbeda.'],['Bu Dina','Jadi bayinya terbaca dari gema?']]],
+['⏱️🧮📏','Komputer mengukur selang waktu gema kembali.',[['Dr. Intan','Kedalaman dihitung dengan d = v·t/2. Dibagi dua karena bunyi pergi dan pulang.']]],
+['🖥️👶💗','Gambar hitam putih muncul di layar.',[['Dr. Intan','Itu kepalanya, dan ini detak jantungnya.'],['Bu Dina','Subhanallah… sudah terlihat jelas!']]],
+['✅🛡️🌊','Bu Dina bertanya soal keamanannya.',[['Dr. Intan','Aman, Bu. Gelombang bunyi tidak mengionisasi seperti sinar-X, jadi cocok untuk ibu hamil. Prinsip yang sama dipakai kapal untuk sonar.']]]]}];
+$('#stabs').innerHTML=S.map((s,i)=>`<button class="tab" role="tab" data-st="${i}" aria-selected="${i==0}">Bab ${i+1}</button>`).join('');
+const CH=[[['#f2c9a0','#2b2118','#e0506f'],['#d9a273','#4a2c1a','#5f8a3f']],[['#f2c9a0','#6b3a1d','#e0506f'],['#b57b4f','#1f1610','#5f8a3f']],[['#d9a273','#2b2118','#5f8a3f'],['#f2c9a0','#3a2a2a','#e0506f']],[['#f2c9a0','#2b2118','#e0506f'],['#d9a273','#2b2118','#ffffff']]];
+const cw=(cx,cy,c='#e0506f')=>`<path d="M${cx} ${cy-10}q9 10 0 20M${cx+10} ${cy-18}q15 18 0 36M${cx+20} ${cy-26}q21 26 0 52" stroke="${c}" stroke-width="3" fill="none" stroke-linecap="round"/>`;
+const RB=['#e0332f','#f4902c','#f6d44a','#6fbf5a','#4aa3e0','#7a5fc0'];
+const PR={stage:`<rect x="30" y="62" width="240" height="14" fill="#5b4a3a"/><rect x="40" y="22" width="26" height="42" rx="3" fill="#2b2b2b"/><rect x="234" y="22" width="26" height="42" rx="3" fill="#2b2b2b"/><circle cx="53" cy="44" r="8" fill="#888"/><circle cx="247" cy="44" r="8" fill="#888"/><circle cx="150" cy="56" r="14" fill="#c0392b"/>`,
+wave:`<path d="${[...Array(31)].map((_,i)=>(i?'L':'M')+(i*10)+' '+(30+10*Math.sin(i*.9))).join('')}" stroke="#e0506f" stroke-width="3" fill="none"/>`,
+amb:`<g transform="translate(-45,0)"><rect x="150" y="96" width="86" height="40" rx="6" fill="#fff" stroke="#2e3b24" stroke-width="2"/><rect x="206" y="104" width="24" height="14" fill="#9bd1ff"/><path d="M178 104v18m-9-9h18" stroke="#e0332f" stroke-width="5"/><circle cx="172" cy="138" r="8" fill="#222"/><circle cx="216" cy="138" r="8" fill="#222"/><circle cx="190" cy="91" r="4" fill="#e0332f"/></g>`,
+dop:cw(205,105)+cw(215,105)+`<path d="M92 105q-12 10 0 20M82 97q-20 18 0 36" stroke="#5f8a3f" stroke-width="3" fill="none"/>`,
+echo:`<rect x="190" y="60" width="90" height="80" fill="#8b8f7a"/><rect x="200" y="76" width="70" height="8" fill="#6d715c"/><rect x="200" y="96" width="70" height="8" fill="#6d715c"/>`+cw(110,100)+`<path d="M180 100q-10-10 0-20M170 108q-18-18 0-36" stroke="#5f8a3f" stroke-width="3" fill="none"/>`,
+board:`<rect x="80" y="26" width="140" height="62" rx="6" fill="#fff" stroke="#2e3b24" stroke-width="3"/><text x="150" y="52" text-anchor="middle" font-size="13" font-weight="700" fill="#2e3b24">700 · 340/320</text><text x="150" y="76" text-anchor="middle" font-size="18" font-weight="800" fill="#e0506f">743,75 Hz</text>`,
+sun:`<circle cx="255" cy="32" r="15" fill="#f6d44a"/><path d="M255 8v8M255 48v8M231 32h8M271 32h8" stroke="#f4902c" stroke-width="3"/>`,
+rain:[...Array(8)].map((_,i)=>`<path d="M${30+i*34} 14l-6 16" stroke="#4aa3e0" stroke-width="3"/>`).join(''),
+rainbow:RB.map((c,i)=>`<path d="M${40+i*8} 140a${110-i*8} ${110-i*8} 0 0 1 ${220-i*16} 0" stroke="${c}" stroke-width="8" fill="none"/>`).join(''),
+glass:`<path d="M120 50h60l-8 70h-44z" fill="#bfe3ff" stroke="#4aa3e0" stroke-width="3"/><path d="M60 80h70" stroke="#fff" stroke-width="4"/><path d="M130 82l18 10" stroke="#fff" stroke-width="4"/>`,
+drop:`<path d="M150 30q42 52 0 86q-42-34 0-86z" fill="#bfe3ff" stroke="#4aa3e0" stroke-width="3"/><path d="M60 70h60l30 22" stroke="#fff" stroke-width="4" fill="none"/><path d="M150 92l60 12" stroke="#e0332f" stroke-width="3"/>`,
+prism:`<polygon points="125,130 175,130 150,60" fill="rgba(190,225,255,.7)" stroke="#2e3b24" stroke-width="3"/><path d="M50 100l92-8" stroke="#fff" stroke-width="5"/>`+RB.map((c,i)=>`<path d="M158 92L260 ${70+i*9}" stroke="${c}" stroke-width="4"/>`).join(''),
+phone:`<rect x="128" y="22" width="44" height="86" rx="8" fill="#2b2b2b"/><rect x="133" y="32" width="34" height="62" rx="3" fill="#bfe3ff"/>`,
+tower:`<path d="M150 22L124 140M150 22L176 140M134 100h32M141 66h18" stroke="#444" stroke-width="3" fill="none"/>`+cw(158,30),
+sat:`<rect x="205" y="20" width="22" height="16" fill="#555"/><rect x="170" y="22" width="30" height="12" fill="#4aa3e0"/><rect x="232" y="22" width="30" height="12" fill="#4aa3e0"/><path d="M215 40l-40 70" stroke="#e0506f" stroke-width="3" stroke-dasharray="5 5"/>`,
+warn:`<polygon points="150,22 190,92 110,92" fill="#f6d44a" stroke="#2e3b24" stroke-width="4"/><text x="150" y="82" text-anchor="middle" font-size="40" font-weight="800" fill="#2e3b24">!</text>`,
+probe:`<rect x="128" y="40" width="22" height="58" rx="6" fill="#555" transform="rotate(-25 139 69)"/><path d="M150 108q20 12 40 0" stroke="#e0506f" stroke-width="3" fill="none"/><path d="M144 120q26 18 52 0" stroke="#e0506f" stroke-width="3" fill="none"/>`,
+eq:`<rect x="70" y="30" width="160" height="52" rx="8" fill="#fff" stroke="#2e3b24" stroke-width="3"/><text x="150" y="64" text-anchor="middle" font-size="24" font-weight="800" fill="#e0506f">d = v·t / 2</text>`,
+screen:`<rect x="90" y="18" width="120" height="86" rx="6" fill="#1e2a22"/><circle cx="150" cy="56" r="22" fill="#cfd8c8" opacity=".8"/><circle cx="142" cy="52" r="3" fill="#1e2a22"/><circle cx="158" cy="52" r="3" fill="#1e2a22"/><path d="M104 90h20l6-10 8 18 6-8h56" stroke="#e0506f" stroke-width="2.5" fill="none"/>`};
+const SC=[[[['stage'],[0,1],0],[['stage','wave'],[0,1],1],[['amb'],[0,1],0],[['amb','dop'],[0,1],1],[['echo'],[0],0],[['board'],[0,1],1]],
+[[['sun','rain','rainbow'],[0,1],0],[['glass'],[0,1],1],[['drop'],[0,1],1],[['prism'],[0,1],1],[['drop','rainbow'],[0,1],0],[['rainbow','sun'],[0],0]],
+[[['phone'],[0],0],[['phone','wave'],[0,1],1],[['tower'],[0,1],0],[['sat'],[0,1],1],[['tower','wave'],[0,1],0],[['warn'],[0,1],1]],
+[[['probe'],[0,1],1],[['probe','wave'],[0,1],1],[['probe','echo'],[0,1],1],[['eq'],[0,1],1],[['screen'],[0,1],1],[['screen','wave'],[0,1],1]]];
+function person(x,d,talk){const m=talk?'<ellipse cy="92" rx="4" ry="3" fill="#7a1f2f"/>':'<path d="M-5 91q5 5 10 0" stroke="#222" fill="none" stroke-width="1.5"/>';return `<g transform="translate(${x},0)"><rect x="-17" y="98" width="34" height="42" rx="12" fill="${d[2]}" stroke="#2e3b24" stroke-width="1.5"/><circle cy="82" r="17" fill="${d[0]}" stroke="#2e3b24" stroke-width="1.5"/><path d="M-18 80a18 18 0 0 1 36 0q-18-12-36 0z" fill="${d[1]}"/><circle cx="-6" cy="84" r="2" fill="#222"/><circle cx="6" cy="84" r="2" fill="#222"/>${m}</g>`}
+function scene(ci,n,alt){const [pk,cs,t]=SC[ci][n];const xs=cs.length==1?[55]:[50,250];return `<svg viewBox="0 0 300 160" class="w-full" style="display:block;background:#fffdf6;border:2px solid #2e3b24" role="img" aria-label="${alt}"><rect y="140" width="300" height="20" fill="#cfe3b4"/>${pk.map(k=>PR[k]).join('')}${cs.map((c,j)=>person(xs[j],CH[ci][c],j==t)).join('')}</svg>`}
+function showS(i){const c=S[i];$('#story').innerHTML=`<h3 class="text-xl font-bold mb-3">Bab ${i+1}: ${c.t}</h3><div class="cm">${c.p.map((p,n)=>`<div class="pn" style="background-color:${c.k}">${scene(i,n,p[1])}<div class="cap">${n+1}. ${p[1]}</div>${p[2].map((b,j)=>`<div class="bb ${j%2?'r':''}"><b>${b[0]}</b>${b[1]}</div>`).join('')}</div>`).join('')}</div><div class="mt-4 p-3 rounded-lg" style="background:var(--soft)"><b class="sans">Fakta fisika:</b> ${c.f}</div>`;typeset()}
+$('#stabs').onclick=e=>{const b=e.target.closest('[data-st]');if(!b)return;$$('[data-st]').forEach(x=>x.setAttribute('aria-selected',x==b));showS(+b.dataset.st)};showS(0);
+
+/* Video interaktif */
+const vc=$('#vc'),cx=vc.getContext('2d'),CP=[9.8,19.8,29.8];
+const SUB=['Atas: gelombang transversal. Bawah: gelombang longitudinal. Perhatikan arah getar tiap titik.','Efek Doppler: sumber bergerak ke kanan, gelombang di depannya terhimpit.','Gelombang stasioner: simpul diam, perut bergetar paling besar.'];
+const VQ=[['Pada gelombang longitudinal, arah getar partikel terhadap arah rambat adalah …',['Tegak lurus','Sejajar','Berlawanan fase','Tidak ada'],1,'Partikel bergetar sejajar arah rambat sehingga terbentuk rapatan dan renggangan.'],['Pendengar di depan sumber bunyi yang mendekat akan mendengar frekuensi …',['Lebih rendah','Sama','Lebih tinggi','Nol'],2,'Gelombang di depan sumber terhimpit, λ memendek, sehingga f yang terdengar naik.'],['Titik yang selalu diam pada gelombang stasioner disebut …',['Perut','Simpul','Bukit','Rapatan'],1,'Simpul beramplitudo nol, sedangkan perut beramplitudo maksimum 2A.']];
+let vt=0,pl=false,lt=0,asked=[0,0,0],sp=1,ss=-1;
+const col=n=>getComputedStyle(document.documentElement).getPropertyValue(n).trim();
+function pauseV(){pl=false;$('#pp').textContent='Putar'}
+function playV(){if(vt>=30){vt=0;asked=[0,0,0]}pl=true;$('#vq').hidden=true;$('#pp').textContent='Jeda'}
+function askQ(i){const q=VQ[i],b=$('#vq');b.hidden=false;b.innerHTML=`<div class="p-3 rounded-lg" style="background:var(--soft)"><p><b>Cek pemahaman ${i+1}/3.</b> ${q[0]}</p>${q[1].map((o,j)=>`<button class="opt" data-vq="${i}" data-o="${j}">${'ABCD'[j]}. ${o}</button>`).join('')}<div id="vx"></div></div>`}
+$('#vq').onclick=e=>{const o=e.target.closest('[data-vq]');if(o){const i=+o.dataset.vq,q=VQ[i];if(+o.dataset.o!=q[2]){o.classList.add('bad');buzz();return}o.classList.add('ok');ding();asked[i]=1;$('#vx').innerHTML=`<p class="mt-2">${q[3]}</p><button class="btn mt-2" id="vn">${i<2?'Lanjutkan video':'Selesai'}</button>`;return}
+ if(e.target.id=='vn'){if(asked[2]&&vt>=29.8){fanfare();$('#vq').innerHTML='<p class="p-3">Video selesai. Kamu menjawab ketiga pertanyaan dengan benar!</p>'}else playV()}};
+$('#pp').onclick=()=>pl?pauseV():playV();
+$('#seek').oninput=e=>{vt=+e.target.value;asked=asked.map((a,i)=>a&&CP[i]<=vt?1:0);$('#vq').hidden=true};
+$('#spd').onchange=e=>sp=+e.target.value;
+function drawV(){const W=640,s=Math.min(2,Math.floor(vt/10)),u=vt-s*10,ink=col('--ink'),sea=col('--sea'),cor=col('--coral');cx.clearRect(0,0,W,320);cx.lineWidth=3;cx.setLineDash([]);cx.font='600 15px Bricolage Grotesque,sans-serif';cx.fillStyle=ink;
+ if(s==0){cx.fillText('Transversal: getar tegak lurus rambat',20,28);cx.strokeStyle=sea;cx.beginPath();for(let i=0;i<=64;i++){const x=20+i*9.5,y=90+34*Math.sin(6.283*(i/21-vt*.5));i?cx.lineTo(x,y):cx.moveTo(x,y)}cx.stroke();cx.fillStyle=cor;for(let j=0;j<=32;j++){cx.beginPath();cx.arc(20+j*19,90+34*Math.sin(6.283*(2*j/21-vt*.5)),5,0,7);cx.fill()}
+  cx.fillStyle=ink;cx.fillText('Longitudinal: getar sejajar rambat',20,185);cx.fillStyle=cor;for(let y=215;y<=265;y+=25)for(let i=0;i<=40;i++){const b=20+i*15.5;cx.beginPath();cx.arc(b+9*Math.sin(6.283*(b/200-vt*.5)),y,6,0,7);cx.fill()}}
+ else if(s==1){cx.strokeStyle=sea;cx.lineWidth=2;for(let k=0;k*.8<=u;k++){const te=k*.8;cx.beginPath();cx.arc(200+te*30,150,(u-te)*70,0,6.283);cx.stroke()}cx.fillStyle=cor;cx.beginPath();cx.arc(200+u*30,150,10,0,7);cx.fill();cx.fillStyle=ink;cx.beginPath();cx.arc(25,150,8,0,7);cx.arc(615,150,8,0,7);cx.fill();cx.fillText('Sumber bergerak ke kanan',20,28);cx.fillText('B: λ renggang, f turun',20,305);cx.fillText('A: λ rapat, f naik',480,305)}
+ else{const x0=60,L=520,k=6.283/260,cs=Math.cos(6.283*.6*vt);cx.fillText('Gelombang stasioner (ujung terikat)',20,28);cx.strokeStyle=col('--line');cx.setLineDash([6,6]);for(const sg of[1,-1]){cx.beginPath();for(let x=0;x<=L;x+=4){const y=160-sg*70*Math.abs(Math.sin(k*x));x?cx.lineTo(x0+x,y):cx.moveTo(x0+x,y)}cx.stroke()}cx.setLineDash([]);cx.strokeStyle=sea;cx.lineWidth=4;cx.beginPath();for(let x=0;x<=L;x+=4){const y=160-70*Math.sin(k*x)*cs;x?cx.lineTo(x0+x,y):cx.moveTo(x0+x,y)}cx.stroke();cx.fillStyle=cor;for(let m=0;m<=4;m++){cx.beginPath();cx.arc(x0+m*130,160,6,0,7);cx.fill()}cx.fillStyle=ink;cx.fillText('Simpul',150,195);cx.fillText('Perut',100,72);cx.fillText('As = 2A sin(kx)',20,305)}}
+function lp(ts){if(pl){vt=Math.min(vt+Math.min((ts-lt)/1000,.1)*sp,30);CP.forEach((c,i)=>{if(!asked[i]&&vt>=c){vt=c;pauseV();askQ(i)}})}lt=ts;$('#seek').value=vt;const s=Math.min(2,Math.floor(vt/10));if(s!=ss){ss=s;$('#sub').textContent=SUB[s]}drawV();requestAnimationFrame(lp)}
+requestAnimationFrame(lp);
+
+/* Kuis */
+const Q=[
+['Dari $y=0{,}05\\sin(10\\pi t-2\\pi x)$ (satuan SI), cepat rambat gelombang adalah …',['2 m/s','5 m/s','10 m/s','20 m/s'],1,'$\\omega=10\\pi\\Rightarrow f=5$ Hz; $k=2\\pi\\Rightarrow\\lambda=1$ m. $v=\\lambda f=1\\times5=5$ m/s.'],
+['Pada gelombang stasioner ujung terikat dengan $\\lambda=40$ cm, simpul ke-3 berada pada jarak … dari ujung terikat.',['20 cm','40 cm','60 cm','80 cm'],1,'$x_s=(n-1)\\frac{\\lambda}{2}=2\\times20=40$ cm.'],
+['Ambulans bersirene 700 Hz mendekati pendengar diam dengan 20 m/s. Cepat rambat bunyi 340 m/s. Frekuensi yang didengar ≈ …',['660 Hz','700 Hz','743,75 Hz','800 Hz'],2,'$f_p=\\frac{340}{340-20}\\times700=743{,}75$ Hz.'],
+['Satu mesin menghasilkan TI 60 dB. Taraf intensitas 100 mesin identik adalah …',['62 dB','80 dB','100 dB','160 dB'],1,'$TI_{100}=60+10\\log100=60+20=80$ dB.'],
+['Young: $d=0{,}2$ mm, $L=1$ m, $\\lambda=600$ nm. Jarak terang pusat ke terang ke-2 adalah …',['3 mm','6 mm','9 mm','12 mm'],1,'$y=\\frac{n\\lambda L}{d}=\\frac{2(6\\times10^{-7})(1)}{2\\times10^{-4}}=6\\times10^{-3}$ m = 6 mm.']];
+let sc=0,done={};
+$('#quiz').innerHTML=Q.map((q,i)=>`<div class="card"><p><b>${i+1}.</b> ${q[0]}</p>${q[1].map((o,j)=>`<button class="opt" data-q="${i}" data-o="${j}">${'ABCD'[j]}. ${o}</button>`).join('')}<div class="mt-2" id="ex${i}"></div></div>`).join('');
+$('#quiz').onclick=e=>{const b=e.target.closest('.opt');if(!b)return;const i=+b.dataset.q,j=+b.dataset.o;if(done[i])return;done[i]=1;const ok=j==Q[i][2];
+ $$(`[data-q="${i}"]`).forEach(x=>{if(+x.dataset.o==Q[i][2])x.classList.add('ok')});
+ if(ok){sc+=20;ding()}else{b.classList.add('bad');buzz()}
+ $('#score').textContent=`Skor: ${sc} / 100`;$('#ex'+i).innerHTML=`<p class="p-3 rounded-lg" style="background:var(--soft)"><b>${ok?'Benar.':'Belum tepat.'}</b> ${Q[i][3]}</p>`;typeset();
+ if(Object.keys(done).length==5)fanfare()};
+
+/* TTS */
+const W=[['LONGITUDINAL','Gelombang dengan arah getar sejajar arah rambat'],['TRANSVERSAL','Arah getar tegak lurus arah rambat'],['POLARISASI','Penyaringan arah getar cahaya sehingga hanya satu arah lolos'],['INTERFERENSI','Perpaduan dua gelombang atau lebih'],['AMPLITUDO','Simpangan maksimum dari titik setimbang'],['STASIONER','Gelombang berdiri dengan simpul dan perut'],['RESONANSI','Ikut bergetarnya benda pada frekuensi alaminya'],['BERJALAN','Gelombang dengan amplitudo tetap di semua titik'],['SPEKTRUM','Rentang gelombang elektromagnetik'],['FREKUENSI','Jumlah getaran tiap sekon'],['REFRAKSI','Pembiasan; perubahan arah cahaya antarmedium'],['DIFRAKSI','Pelenturan gelombang saat melewati celah sempit'],['DISPERSI','Penguraian cahaya putih menjadi warna-warna'],['PERIODE','Waktu untuk satu getaran penuh'],['DOPPLER','Efek perubahan frekuensi akibat gerak relatif sumber–pendengar']];
+$('#g1').innerHTML=`<p class="mb-3">Isi huruf tiap istilah sesuai petunjuk.</p>`+W.map((w,i)=>`<div class="mb-3"><div class="sans text-sm font-bold">${i+1}. ${w[1]} (${w[0].length} huruf)</div><div class="flex flex-wrap gap-1 mt-1" data-w="${i}">${[...w[0]].map((c,j)=>`<input class="cell" maxlength="1" aria-label="Kata ${i+1} huruf ${j+1}">`).join('')}</div></div>`).join('')+`<button class="btn" id="chk">Cek jawaban</button> <span class="sans font-bold ml-2" id="tr"></span>`;
+$('#g1').addEventListener('input',e=>{if(e.target.value&&e.target.nextElementSibling)e.target.nextElementSibling.focus()});
+$('#chk').onclick=()=>{let n=0;W.forEach((w,i)=>{const cs=$$(`[data-w="${i}"] input`);let all=1;cs.forEach((c,j)=>{const r=c.value.toUpperCase()==w[0][j];c.classList.toggle('ok',r);c.classList.toggle('bad',!r);if(!r)all=0});n+=all});$('#tr').textContent=`${n} / 15 kata benar`;n==15?fanfare():n<15&&buzz()};
+
+/* Drag & drop */
+const F=[['$v=\\lambda\\cdot f$','Cepat rambat gelombang'],['$y=A\\sin(\\omega t-kx)$','Gelombang berjalan'],['$A_s=2A\\sin(kx)$','Amplitudo stasioner ujung terikat'],['$f_p=\\frac{v\\pm v_p}{v\\pm v_s}f_s$','Efek Doppler'],['$TI=10\\log\\frac{I}{I_0}$','Taraf intensitas bunyi'],['$d\\sin\\theta=n\\lambda$','Interferensi terang Young'],['$I=\\frac{P}{4\\pi r^2}$','Intensitas gelombang'],['$\\Delta\\varphi=\\frac{\\Delta x}{\\lambda}$','Beda fase gelombang']];
+let sel=null,placed={};const order=[...F.keys()].sort(()=>Math.random()-.5);
+function mk(){$('#g2').innerHTML=`<p class="mb-2">Seret rumus ke namanya. Di layar sentuh, ketuk rumus lalu ketuk namanya.</p><div id="pool" class="mb-3"></div><div class="grid sm:grid-cols-2 gap-2">${F.map((f,i)=>`<div><div class="sans text-sm font-bold">${f[1]}</div><div class="slot" data-s="${i}"></div></div>`).join('')}</div><p class="sans font-bold mt-3" id="gr"></p>`;
+ $('#pool').innerHTML=order.filter(i=>placed[i]===undefined).map(i=>`<span class="fc" draggable="true" tabindex="0" data-f="${i}">${F[i][0]}</span>`).join('');
+ Object.entries(placed).forEach(([i,s])=>{$(`[data-s="${s}"]`).innerHTML=`<span class="fc" data-f="${i}">${F[i][0]}</span>`;$(`[data-s="${s}"]`).classList.add(+i==s?'ok':'bad')});typeset()}
+function drop(f,s){if(f==null)return;if(Object.values(placed).includes(s))return;placed[f]=s;sel=null;+f==s?ding():buzz();mk();
+ if(Object.keys(placed).length==8){const c=Object.entries(placed).filter(([i,s])=>+i==s).length;$('#gr').textContent=`${c} / 8 rumus cocok`;if(c==8)fanfare()}}
+$('#g2').addEventListener('dragstart',e=>{const f=e.target.closest('[data-f]');if(f)e.dataTransfer.setData('t',f.dataset.f)});
+$('#g2').addEventListener('dragover',e=>{if(e.target.closest('.slot'))e.preventDefault()});
+$('#g2').addEventListener('drop',e=>{const s=e.target.closest('.slot');if(s){e.preventDefault();drop(+e.dataTransfer.getData('t'),+s.dataset.s)}});
+$('#g2').addEventListener('click',e=>{const f=e.target.closest('#pool [data-f]'),s=e.target.closest('.slot');
+ if(f){sel=+f.dataset.f;$$('.fc').forEach(x=>x.classList.toggle('sel',x==f))}else if(s&&sel!==null)drop(sel,+s.dataset.s)});
+mk();
+$('#g1b').onclick=()=>{g1.hidden=0;g2.hidden=1;g1b.setAttribute('aria-selected',1);g2b.setAttribute('aria-selected',0)};
+$('#g2b').onclick=()=>{g1.hidden=1;g2.hidden=0;g2b.setAttribute('aria-selected',1);g1b.setAttribute('aria-selected',0);typeset()};
+</script></body></html>
